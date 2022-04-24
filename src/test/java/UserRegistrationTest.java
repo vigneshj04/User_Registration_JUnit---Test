@@ -58,4 +58,17 @@ public class UserRegistrationTest {
         Assertions.assertFalse(result);
     }
 
+    @Test
+    void givenFirstName_WhenProperPassword_ShouldReturnTrue() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean result = userRegistration.addPassword("aassdasd");
+        Assertions.assertTrue(result);
+    }
+
+    @Test
+    void givenFirstName_WhenNotProperPassword_ShouldReturnFalse() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean result = userRegistration.addPassword("aasas");
+        Assertions.assertFalse(result);
+    }
 }

@@ -9,7 +9,7 @@ public class UserRegistration {
     public void addUser() {
         int choice = 0;
         do {
-            System.out.println("1. First Name\\n2. Last Name\n3. Email\n0. Exit");
+            System.out.println("1. First Name\\n2. Last Name\n3. Email\n4. Mobile Number\n5.0. Exit");
             System.out.println("Enter choice");
             choice = scanner.nextInt();
             switch (choice) {
@@ -28,6 +28,10 @@ public class UserRegistration {
                 case 4:
                     String phoneNumber = stringInput("Enter phone number");
                     addPhoneNumber(phoneNumber);
+                    break;
+                case 5:
+                    String password = stringInput("Enter Password");
+                    addPassword(password);
                     break;
                 case 0:
                     break;
@@ -84,4 +88,14 @@ public class UserRegistration {
         }
     }
 
+    public boolean addPassword(String password) {
+        boolean isPassword = Pattern.matches("^([a-z]){8,20}$", password);
+        if (isPassword) {
+            userDetails.setPassword(password);
+            return true;
+        } else {
+            System.out.println("Please check Password");
+            return false;
+        }
+    }
 }
