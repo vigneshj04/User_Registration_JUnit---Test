@@ -89,7 +89,7 @@ public class UserRegistration {
     }
 
     public boolean addPassword(String password) {
-        boolean isPassword = Pattern.matches("^([a-z]){8,20}$", password);
+        boolean isPassword = Pattern.matches("^(?=.*[a-z])(?=.*[A-Z])(?!.+[0-9]).{8,}$", password);
         if (isPassword) {
             userDetails.setPassword(password);
             return true;
