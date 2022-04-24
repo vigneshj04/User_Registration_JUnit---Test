@@ -43,4 +43,19 @@ public class UserRegistrationTest {
         boolean result = userRegistration.addEmail("abc.100@g.c");
         Assertions.assertFalse(result);
     }
+
+    @Test
+    void givenFirstName_WhenProperPhoneNumber_ShouldReturnTrue() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean result = userRegistration.addPhoneNumber("91 9876543210");
+        Assertions.assertTrue(result);
+    }
+
+    @Test
+    void givenFirstName_WhenNotProperPhoneNumber_ShouldReturnFalse() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean result = userRegistration.addPhoneNumber("9199342348232");
+        Assertions.assertFalse(result);
+    }
+
 }

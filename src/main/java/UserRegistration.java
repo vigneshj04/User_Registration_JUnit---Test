@@ -25,6 +25,10 @@ public class UserRegistration {
                     String email = stringInput("Enter email");
                     addEmail(email);
                     break;
+                case 4:
+                    String phoneNumber = stringInput("Enter phone number");
+                    addPhoneNumber(phoneNumber);
+                    break;
                 case 0:
                     break;
             }
@@ -68,4 +72,16 @@ public class UserRegistration {
             return false;
         }
     }
+
+    public boolean addPhoneNumber(String phoneNumber) {
+        boolean isPhoneNumber = Pattern.matches("^([1-9]+[0-9]+)[\\s][0-9]{10}$", phoneNumber);
+        if (isPhoneNumber) {
+            userDetails.setPhoneNumber(phoneNumber);
+            return true;
+        } else {
+            System.out.println("Please check Phone Number");
+            return false;
+        }
+    }
+
 }
